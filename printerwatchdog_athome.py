@@ -2,7 +2,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import pymongo
 from datetime import datetime
-
+'''
 printers = [
 '192.168.0.90', '192.168.0.91', '192.168.0.92', '192.168.0.93',
 '192.168.0.94', '192.168.0.95', '192.168.0.96', '192.168.0.97',
@@ -34,33 +34,41 @@ def switch(printerSwitch): # gets all printers data based on the index
         return 141
     elif printerSwitch == 8:
         return 196
-    
+ '''   
 def scrapData():
     sheetsList = []
     counter = 0
     print("Scraping data...")
     while True: # loop to keep pulling data
-        if counter >= 8: #always 9
+        if counter >= 9: #always 9
             print("Adding to database...")
-            sheetsList = list(map(int, sheetsList)) # when the loop reaches the end, transforms all list into integer
+            
+            
+            # NOTE: The difference between this file and the other one, is that this one is for testing at home, without the printers.
+
+            #sheetsList = list(map(int, sheetsList)) # when the loop reaches the end, transforms all list into integer
             thresholdList = [239887, 522499, 114475, 
                             163626, 526910, 484607, # NOTE: this is hardcoded, you shouldn't leave like this, it's ugly.
-                            43555, 131545] #294676 add as the last index
-            #print(*sheetsList) # just for monitoring :D
-            #print(*thresholdList)
+                            43555, 131545, 294676]
+            sheetsList = [239887, 522499, 114475, 
+                            163626, 526910, 484607, # NOTE: this is hardcoded, you shouldn't leave like this, it's ugly.
+                            43555, 131545, 294776]
+            
+            print(*sheetsList) # just for monitoring :D
+            print(*thresholdList)
             valueOne = sum(thresholdList)
             valueTwo = sum(sheetsList)
             finalSum = valueTwo - valueOne
             return finalSum
             break
-        elif counter <= 8: # always 9
-            switchReturn = switch(counter)
-            url = concatenateURL(counter)
-            htmlPage = urlopen(url).read()
-            soup = BeautifulSoup(htmlPage, features="html.parser")
-            cleanPage = soup.getText()
-            pageSplitter = cleanPage.split()
-            sheetsList.insert(counter, pageSplitter[switchReturn]) # inserting a list with the data of the splitted page
+        elif counter <= 9: # always 9
+            #switchReturn = switch(counter)
+            #url = concatenateURL(counter)
+            #htmlPage = urlopen(url).read()
+            #soup = BeautifulSoup(htmlPage, features="html.parser")
+            #cleanPage = soup.getText()
+            #pageSplitter = cleanPage.split()
+            #sheetsList.insert(counter, pageSplitter[switchReturn]) # inserting a list with the data of the splitted page
             counter += 1
 
 def writeDBFinalSum():
