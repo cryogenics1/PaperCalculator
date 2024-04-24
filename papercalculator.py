@@ -29,13 +29,13 @@ def solidWaste(x):
     x = x * 0.588
     x = int(round(x, 3))
     return x
-#def lbsToKg():
-#def gallonsToLiters:
+ # I've decided to keep imperial units. Maybe someone outside metric system someday will use it. 
+def lbsToKg(x):
+    x = x * 0.45359237
+    x = int(round(x, 3))
+    return x
 
-print(sheetToPound(7000))
-print(woodUse(70))
-print(totalEnergy(70))
-print(GHGEmissions(70))
-print(waterUse(70))
-print(solidWaste(71))
-
+def gallonsToLiters(x):
+    x = x * 3.785411784
+    x = int(round(x, 3))
+    return x
