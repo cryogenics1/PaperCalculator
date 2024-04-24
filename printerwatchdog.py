@@ -40,12 +40,12 @@ def scrapData():
     counter = 0
     print("Scraping data...")
     while True: # loop to keep pulling data
-        if counter >= 9:
+        if counter >= 8: #always 9
             print("Adding to database...")
             sheetsList = list(map(int, sheetsList)) # when the loop reaches the end, transforms all list into integer
             thresholdList = [239887, 522499, 114475, 
                             163626, 526910, 484607, # NOTE: this is hardcoded, you shouldn't leave like this, it's ugly.
-                            43555, 131545, 294676]
+                            43555, 131545] #294676 add as the last index
             #print(*sheetsList) # just for monitoring :D
             #print(*thresholdList)
             valueOne = sum(thresholdList)
@@ -53,7 +53,7 @@ def scrapData():
             finalSum = valueTwo - valueOne
             return finalSum
             break
-        elif counter <= 9:
+        elif counter <= 8: # always 9
             switchReturn = switch(counter)
             url = concatenateURL(counter)
             htmlPage = urlopen(url).read()
@@ -78,7 +78,7 @@ def writeDB(x, y, z): # NOTE: x = value, y = field, z = collection, e.g: writeDB
     collection = db[z]
     currentTime = datetime.now()
     collection.insert_many([{'timestamp': currentTime, y: x}])
-    print(f'Inserted: %d' % x)
+    print(f'Inserted: {x}, on {y}, in {z}')
 # 90 = 156
 # 91 = 177
 # 92 = 162
