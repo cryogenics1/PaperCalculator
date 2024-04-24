@@ -3,7 +3,6 @@ def sheetToPound(x):
     x = int(round(x, 3))
     return x
 
-
 def woodUse(x):
     x = x * 4
     return x
@@ -13,12 +12,10 @@ def totalEnergy(x): # don't forget it's BTU and million after
     x = round(x, 2)
     return x
 
-
 def GHGEmissions(x):
     x = x * 9
     x = int(round(x, 3))
     return x
-
 
 def waterUse(x): # it's in gallons
     x = x * 10.7
