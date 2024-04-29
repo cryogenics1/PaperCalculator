@@ -1,5 +1,5 @@
-#import printerwatchdog
-import printerwatchdog_athome
+import printerwatchdog
+#import printerwatchdog_athome
 import papercalculator
 import time
 
@@ -11,7 +11,7 @@ import time
 
 
 def timer():
-    finalSum = printerwatchdog_athome.scrapData()
+    finalSum = printerwatchdog.scrapData()
     sheetsWeight = papercalculator.sheetToPound(finalSum)
     sheetsWeightKg = papercalculator.lbsToKg(papercalculator.sheetToPound(finalSum))
     woodUse = papercalculator.lbsToKg(papercalculator.woodUse(sheetsWeight))
@@ -19,17 +19,17 @@ def timer():
     GHGEmissions = papercalculator.lbsToKg(papercalculator.GHGEmissions(sheetsWeight))
     solidWaste = papercalculator.lbsToKg(papercalculator.solidWaste(sheetsWeight))
     waterUse = papercalculator.gallonsToLiters(papercalculator.waterUse(sheetsWeight))
-    printerwatchdog_athome.writeDB(finalSum, 'Sheets', 'A4Sheet')
-    printerwatchdog_athome.writeDB(woodUse, 'WoodUse', 'metrics')
-    printerwatchdog_athome.writeDB(totalEnergy, 'TotalEnergy', 'metrics')
-    printerwatchdog_athome.writeDB(GHGEmissions, 'GHGEmissions', 'metrics')
-    printerwatchdog_athome.writeDB(solidWaste, 'SolidWaste', 'metrics')
-    printerwatchdog_athome.writeDB(waterUse, 'WaterUse', 'metrics')    
-    print('Cooling down...')
 
+    printerwatchdog.writeDB(finalSum, 'Sheets', 'A4Sheet')
+    printerwatchdog.writeDB(woodUse, 'WoodUse', 'metrics')
+    printerwatchdog.writeDB(totalEnergy, 'TotalEnergy', 'metrics')
+    printerwatchdog.writeDB(GHGEmissions, 'GHGEmissions', 'metrics')
+    printerwatchdog.writeDB(solidWaste, 'SolidWaste', 'metrics')
+    printerwatchdog.writeDB(waterUse, 'WaterUse', 'metrics')
+
+    print('Cooling down...')
 
 while True:
     print('Resuming...')
     timer()
     time.sleep(120)
-
