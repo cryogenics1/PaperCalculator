@@ -50,7 +50,7 @@ printers = [
 
 printersIndex = [156, 177, 162, 164, 223, 160, 153, 141, 196]
 
-thresholdList = [239887, 522499, 114475, 163626, 526910, 484607, 43555, 131545] #294676 add as the last index
+thresholdList = [239887, 522499, 114475, 163626, 526910, 484607, 43555, 131545, 294676] #294676 add as the last index
  # NOTE: this is hardcoded, you shouldn't leave like this, it's ugly.
 
 
