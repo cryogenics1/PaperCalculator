@@ -26,7 +26,7 @@ def scrapData():
 
          elif counter >= 8: #always 8
             print("Adding to database...")
-            sheetsList = list(map(int, sheetsList)) # when the loop reaches the end, transforms all list into integer
+            sheetsList = list(map(int, sheetsList)) 
             print(*sheetsList) # just for monitoring :D
             print(*thresholdList)
             valueOne = sum(thresholdList)
