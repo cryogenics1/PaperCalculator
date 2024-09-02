@@ -40,7 +40,7 @@ def scrapData():
         if counter >= 9:
             print("Adding to database...")
             sheetsListStr = sheetsList[:] # creates a copy of the list before converting to integer, since you cannot display integer as strings
-            sheetsList = list(map(int, sheetsList)) # when the loop reaches the limit, transforms all list into integer
+            sheetsList = list(map(int, sheetsList)) 
             thresholdList = [239887, 522499, 114475, 
                  163626, 526910, 484607, # NOTE: this is hardcoded, you shouldn't leave like this, it's ugly.
                  43555, 131545, 294676]
@@ -79,13 +79,3 @@ def writeDB():
     
 
 scrapData()
-
-# 90 = 156
-# 91 = 177
-# 92 = 162
-# 93 = 164 
-# 94 = 223
-# 95 = 160
-# 96 = 153
-# 97 = 141
-# 98 = 196
