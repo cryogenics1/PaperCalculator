@@ -44,9 +44,9 @@ def scrapData():
             print("Adding to database...")
             
             
-            # NOTE: The difference between this file and the other one, is that this one is for testing at home, without the printers.
+            # NOTE: The difference between this file and the other one, is that this one is for testing at home, without the printers connected on the local network.
 
-            #sheetsList = list(map(int, sheetsList)) # when the loop reaches the end, transforms all list into integer
+            #sheetsList = list(map(int, sheetsList)) 
             thresholdList = [239887, 522499, 114475, 
                             163626, 526910, 484607, # NOTE: this is hardcoded, you shouldn't leave like this, it's ugly.
                             43555, 131545, 294676]
@@ -68,7 +68,7 @@ def scrapData():
             #soup = BeautifulSoup(htmlPage, features="html.parser")
             #cleanPage = soup.getText()
             #pageSplitter = cleanPage.split()
-            #sheetsList.insert(counter, pageSplitter[switchReturn]) # inserting a list with the data of the splitted page
+            #sheetsList.insert(counter, pageSplitter[switchReturn]) 
             counter += 1
 
 def writeDBFinalSum():
@@ -80,19 +80,10 @@ def writeDBFinalSum():
     collection.insert_many([{'timestamp': currentTime, 'Sheets': finalSum}])
     print(f'Inserted: %d' % finalSum)
 
-def writeDB(x, y, z): # NOTE: x = value, y = field, z = collection, e.g: writeDB(2, 'Sheets', 'A4Sheets')
+def writeDB(x, y, z): # x = value, y = field, z = collection, e.g: writeDB(2, 'Sheets', 'A4Sheets')
     client = pymongo.MongoClient('mongodb://127.0.0.1:27017')
     db = client.sheetsDB
     collection = db[z]
     currentTime = datetime.now()
     collection.insert_many([{'timestamp': currentTime, y: x}])
     print(f'Inserted: {x}, on {y}, in {z}')
-# 90 = 156
-# 91 = 177
-# 92 = 162
-# 93 = 164 
-# 94 = 223
-# 95 = 160
-# 96 = 153
-# 97 = 141
-# 98 = 196
