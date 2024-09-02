@@ -14,14 +14,14 @@ def scrapData():
     sheetsList = []
     counter = 0
     print("Scraping data...")
-    while True: # loop to keep pulling data
+    while True: 
          if counter <= 8: # always 8
             url = concatenateURL(counter)
             htmlPage = urlopen(url).read()
             soup = BeautifulSoup(htmlPage, features="html.parser")
             cleanPage = soup.getText()
             pageSplitter = cleanPage.split()
-            sheetsList.insert(counter, pageSplitter[printersIndex[counter]]) # inserting a list with the data of the splitted page
+            sheetsList.insert(counter, pageSplitter[printersIndex[counter]])
             counter += 1
 
          elif counter >= 8: #always 8
@@ -50,26 +50,4 @@ printers = [
 
 printersIndex = [156, 177, 162, 164, 223, 160, 153, 141, 196]
 
-thresholdList = [239887, 522499, 114475, 163626, 526910, 484607, 43555, 131545, 294676] #294676 add as the last index
- # NOTE: this is hardcoded, you shouldn't leave like this, it's ugly.
-
-
-
-
-
-
-
-
-
-
-
-
-# 90 = 156
-# 91 = 177
-# 92 = 162
-# 93 = 164 
-# 94 = 223
-# 95 = 160
-# 96 = 153
-# 97 = 141
-# 98 = 196
+thresholdList = [239887, 522499, 114475, 163626, 526910, 484607, 43555, 131545, 294676]
