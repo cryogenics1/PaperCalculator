@@ -1,4 +1,4 @@
-i've created this project for a college assignment to create something impactful for the enviroment based on the [2030 agenda for sustainable development from United Nations] (https://documents.un.org/doc/undoc/gen/n15/291/89/pdf/n1529189.pdf)
+i've created this project for a college assignment to create something impactful for the enviroment based on the [2030 agenda for sustainable development from United Nations](https://documents.un.org/doc/undoc/gen/n15/291/89/pdf/n1529189.pdf)
 
 it was made to work on the webui from Lexmark's MX711de and MX611dhe printers
 
